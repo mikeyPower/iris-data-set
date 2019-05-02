@@ -30,26 +30,33 @@ def main():
         else:
             iris_virginica.append([float(x) for x in row[:-1]])
 
+    setosa_len = len(iris_setosa)
+    versicolour_len = len(iris_versicolour)
+    virginica_len = len(iris_virginica)
 
-    print(len(data))
-    print(len(iris_setosa))
-    print(len(iris_versicolour))
-    print(len(iris_virginica))
+   # print(len(data))
+    #print(len(iris_setosa))
+    #print(len(iris_versicolour))
+    #print(len(iris_virginica))
 
     setosa_sepal_length_avg=0
     setosa_sepal_width_avg=0
     setosa_petal_length_avg=0
     setosa_petal_width_avg=0
 
-    setosa_sepal_length_max=0
-    setosa_sepal_width_max=0
-    setosa_petal_length_max=0
-    setosa_petal_width_max=0
+    setosa_sepal_length_max=iris_setosa[0][0]
+    setosa_sepal_width_max=iris_setosa[0][1]
+    setosa_petal_length_max=iris_setosa[0][2]
+    setosa_petal_width_max=iris_setosa[0][3]
 
-    setosa_sepal_length_min=0
-    setosa_sepal_width_min=0
-    setosa_petal_length_min=0
-    setosa_petal_width_min=0
+    setosa_sepal_length_min=iris_setosa[0][0]
+    setosa_sepal_width_min=iris_setosa[0][1]
+    setosa_petal_length_min=iris_setosa[0][2]
+    setosa_petal_width_min=iris_setosa[0][3]
+
+    #for i in iris_setosa:
+        #print(i)
+
 
 
     for i in iris_setosa:
@@ -92,14 +99,14 @@ def main():
     versicolour_petal_length_avg=0
     versicolour_petal_width_avg=0
 
-    versicolour_sepal_length_max=0
-    versicolour_sepal_width_max=0
-    versicolour_petal_length_max=0
-    versicolour_petal_width_max=0
-    versicolour_sepal_length_min=0
-    versicolour_sepal_width_min=0
-    versicolour_petal_length_min=0
-    versicolour_petal_width_min=0
+    versicolour_sepal_length_max=iris_versicolour[0][0]
+    versicolour_sepal_width_max=iris_versicolour[0][1]
+    versicolour_petal_length_max=iris_versicolour[0][2]
+    versicolour_petal_width_max=iris_versicolour[0][3]
+    versicolour_sepal_length_min=iris_versicolour[0][0]
+    versicolour_sepal_width_min=iris_versicolour[0][1]
+    versicolour_petal_length_min=iris_versicolour[0][2]
+    versicolour_petal_width_min=iris_versicolour[0][3]
     for i in iris_versicolour:
 
 
@@ -148,14 +155,14 @@ def main():
     virginica_petal_length_avg=0
     virginica_petal_width_avg=0
 
-    virginica_sepal_length_max=0
-    virginica_sepal_width_max=0
-    virginica_petal_length_max=0
-    virginica_petal_width_max=0
-    virginica_sepal_length_min=0
-    virginica_sepal_width_min=0
-    virginica_petal_length_min=0
-    virginica_petal_width_min=0
+    virginica_sepal_length_max=iris_virginica[0][0]
+    virginica_sepal_width_max=iris_virginica[0][1]
+    virginica_petal_length_max=iris_virginica[0][2]
+    virginica_petal_width_max=iris_virginica[0][3]
+    virginica_sepal_length_min=iris_virginica[0][0]
+    virginica_sepal_width_min=iris_virginica[0][1]
+    virginica_petal_length_min=iris_virginica[0][2]
+    virginica_petal_width_min=iris_virginica[0][3]
     for i in iris_virginica:
 
         virginica_sepal_length_avg+=i[0]
@@ -188,6 +195,22 @@ def main():
            virginica_petal_width_max=i[3]
         elif(virginica_petal_width_min > i[3]):
            virginica_petal_width_min=i[3]
+
+    print("Setosa Data :")
+    print("Average sepal length :", setosa_sepal_length_avg/setosa_len)
+    print("Average sepal width :",setosa_sepal_width_avg/setosa_len)
+    print("Average petal length :",setosa_petal_length_avg/setosa_len)
+    print("Average petal width :",setosa_petal_width_avg/setosa_len)
+
+    print("Max sepal length :",setosa_sepal_length_max)
+    print("Max sepal width :",setosa_sepal_width_max)
+    print("Max petal length :",setosa_petal_length_max)
+    print("Max petal width :",setosa_petal_width_max)
+
+    print("Minimum sepal length :",setosa_sepal_length_min)
+    print("Minimum sepal width :",setosa_sepal_width_min)
+    print("Minimum petal legth :",setosa_petal_length_min)
+    print("Minimum petal width :",setosa_petal_width_min)
 
 if __name__ == '__main__':
     main()

@@ -211,6 +211,41 @@ def main():
     print("Minimum sepal width :",setosa_sepal_width_min)
     print("Minimum petal legth :",setosa_petal_length_min)
     print("Minimum petal width :",setosa_petal_width_min)
+    print()
+
+
+    print("Versicolour Data :")
+    print("Average sepal length :", versicolour_sepal_length_avg/setosa_len)
+    print("Average sepal width :",versicolour_sepal_width_avg/setosa_len)
+    print("Average petal length :",versicolour_petal_length_avg/setosa_len)
+    print("Average petal width :",versicolour_petal_width_avg/setosa_len)
+
+    print("Max sepal length :",versicolour_sepal_length_max)
+    print("Max sepal width :",versicolour_sepal_width_max)
+    print("Max petal length :",versicolour_petal_length_max)
+    print("Max petal width :",versicolour_petal_width_max)
+
+    print("Minimum sepal length :",versicolour_sepal_length_min)
+    print("Minimum sepal width :",versicolour_sepal_width_min)
+    print("Minimum petal legth :",versicolour_petal_length_min)
+    print("Minimum petal width :",versicolour_petal_width_min)
+    print()
+
+    print("Virginica Data :")
+    print("Average sepal length :", virginica_sepal_length_avg/setosa_len)
+    print("Average sepal width :",virginica_sepal_width_avg/setosa_len)
+    print("Average petal length :",virginica_petal_length_avg/setosa_len)
+    print("Average petal width :",virginica_petal_width_avg/setosa_len)
+
+    print("Max sepal length :",virginica_sepal_length_max)
+    print("Max sepal width :",virginica_sepal_width_max)
+    print("Max petal length :",virginica_petal_length_max)
+    print("Max petal width :",virginica_petal_width_max)
+
+    print("Minimum sepal length :",virginica_sepal_length_min)
+    print("Minimum sepal width :",virginica_sepal_width_min)
+    print("Minimum petal legth :",virginica_petal_length_min)
+    print("Minimum petal width :",virginica_petal_width_min)
 
 if __name__ == '__main__':
     main()

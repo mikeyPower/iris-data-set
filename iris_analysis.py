@@ -1,5 +1,17 @@
 # Predict the class of the flower based on available attributes.
 
+import math
+
+def standard_dev(flower,mean,column):
+
+    total = 0.0
+    for i in flower:
+        sum=i[column]-mean
+        square=sum*sum
+        total+=square
+
+    s_dev = total/len(flower)
+    return math.sqrt(s_dev)
 
 
 
@@ -211,6 +223,12 @@ def main():
     print("Minimum sepal width :",setosa_sepal_width_min)
     print("Minimum petal legth :",setosa_petal_length_min)
     print("Minimum petal width :",setosa_petal_width_min)
+
+    print("Standard Deviation sepal length :",standard_dev(iris_setosa,setosa_sepal_length_avg,0))
+    print("Standard Deviation sepal width :",standard_dev(iris_setosa,setosa_sepal_width_avg,1))
+    print("Standard Deviation petal legth :",standard_dev(iris_setosa,setosa_petal_length_avg,2))
+    print("Standard Deviation petal width :",standard_dev(iris_setosa,setosa_petal_width_avg,3))
+
     print()
 
 
@@ -229,6 +247,12 @@ def main():
     print("Minimum sepal width :",versicolour_sepal_width_min)
     print("Minimum petal legth :",versicolour_petal_length_min)
     print("Minimum petal width :",versicolour_petal_width_min)
+
+    print("Standard Deviation sepal length :",standard_dev(iris_versicolour,setosa_sepal_length_avg,0))
+    print("Standard Deviation sepal width :",standard_dev(iris_versicolour,setosa_sepal_width_avg,1))
+    print("Standard Deviation petal legth :",standard_dev(iris_versicolour,setosa_petal_length_avg,2))
+    print("Standard Deviation petal width :",standard_dev(iris_versicolour,setosa_petal_width_avg,3))
+
     print()
 
     print("Virginica Data :")
@@ -246,6 +270,12 @@ def main():
     print("Minimum sepal width :",virginica_sepal_width_min)
     print("Minimum petal legth :",virginica_petal_length_min)
     print("Minimum petal width :",virginica_petal_width_min)
+
+    print("Standard Deviation sepal length :",standard_dev(iris_virginica,setosa_sepal_length_avg,0))
+    print("Standard Deviation sepal width :",standard_dev(iris_virginica,setosa_sepal_width_avg,1))
+    print("Standard Deviation petal legth :",standard_dev(iris_virginica,setosa_petal_length_avg,2))
+    print("Standard Deviation petal width :",standard_dev(iris_virginica,setosa_petal_width_avg,3))
+
 
 if __name__ == '__main__':
     main()

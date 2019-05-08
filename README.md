@@ -12,4 +12,4 @@ https://www.datascience.com/blog/introduction-to-correlation-learn-data-science-
 
 https://www.khanacademy.org/math/probability/data-distributions-a1/summarizing-spread-distributions/a/calculating-standard-deviation-step-by-step
 
-never assign max and min to 0 as 0 might not exist in the data
+https://www.investopedia.com/terms/s/standarddeviation.asp

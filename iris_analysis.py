@@ -3,6 +3,31 @@
 import math
 
 
+def pattern_match(pattern_data,unknown_species):
+
+    #print(unknown_species)
+    all_standard_dev=[]
+    for i in pattern_data:
+        k=2
+        stan_dev=0.0
+        for j in i[:2]:
+            #print(j,k,unknown_species)
+
+
+            stan_dev+=standard_dev([unknown_species],j,k)
+            k+=1
+
+        all_standard_dev+=[stan_dev]
+
+    print(all_standard_dev)
+    return(all_standard_dev)
+    #for i in pattern_data:
+    #    for j in i[2:]:
+    #        stan_dev = []
+    #        for k in range(unknown_species[2:4]):
+    #            stan_dev+=[standard_dev(unknown_species,j,k+2)]
+
+
 # Function to calculate the correlation between to sets of data
 def correlation(data, column_a, column_b):
 
@@ -45,6 +70,7 @@ def standard_dev(flower,mean,column):
 
     # Calculate the standard deviation by summing the each value from subtracted by the mean and squaring the result
     total = 0.0
+    sum=0.0
     for i in flower:
 
         sum=i[column]-mean
@@ -325,10 +351,31 @@ def main():
 
     print()
 
-
+    print("Correlations :")
     print("Correlation between Species and Sepal Length :",correlation(flower_data,0,4))
     print("Correlation between Species and Sepal Width :",correlation(flower_data,1,4))
     print("Correlation between Species and Petal Length :",correlation(flower_data,2,4))
     print("Correlation between Species and Petal Width :",correlation(flower_data,3,4))
+
+    print()
+
+    # As we can see from trials that there is a high class correlation between both sepal length and width, those attributes are going to be our indicators for predicting the species
+    # Were not going to include min or max due to possible outliers although these exact outliers can cause errors with Avg values, just a preferance to include
+    # [avg_petal_length,avg_petal_width,standard_dev_petal_length,standard_dev_petal_width]
+
+    setosa_pattern = [setosa_petal_length_avg/setosa_len, setosa_petal_width_avg/setosa_len, standard_dev(iris_setosa,setosa_petal_length_avg/setosa_len,2),standard_dev(iris_setosa,setosa_petal_width_avg/setosa_len,3)]
+
+    versicolour_pattern = [versicolour_petal_length_avg/versicolour_len, versicolour_petal_width_avg/versicolour_len, standard_dev(iris_versicolour,versicolour_petal_length_avg/versicolour_len,2),
+standard_dev(iris_versicolour,versicolour_petal_width_avg/versicolour_len,3)]
+
+    virginica_pattern = [virginica_petal_length_avg/virginica_len, virginica_petal_width_avg/virginica_len, standard_dev(iris_virginica,virginica_petal_length_avg/virginica_len,2),
+    standard_dev(iris_virginica,virginica_petal_width_avg/virginica_len,3)]
+
+
+    patterns = [setosa_pattern,versicolour_pattern,virginica_pattern]
+
+    pattern_match(patterns,iris_setosa[0])
+
+    #print(standard_dev([iris_setosa[0]],setosa_petal_length_avg/setosa_len,2))
 if __name__ == '__main__':
     main()

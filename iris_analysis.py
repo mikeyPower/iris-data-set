@@ -1,6 +1,16 @@
 # Predict the class of the flower based on available attributes.
 
 import math
+import sys
+import scipy
+import numpy
+import matplotlib
+import pandas
+import sklearn
+import matplotlib.pyplot as plt
+import csv
+from pandas.plotting import scatter_matrix
+from sklearn.model_selection import train_test_split
 
 
 def pattern_match(pattern_data,unknown_species):
@@ -96,22 +106,27 @@ def main():
 
     # Initalize some variables
     flower_data =[]
+    flower_data_name=[]
     iris_setosa=[]
     iris_versicolour=[]
     iris_virginica=[]
 
     # Remove known errors from data
-    errors = []
-    errors.append(lines[34])
-    errors.append(lines[37])
-    lines.pop(34)
-    lines.pop(37)
+    #errors = []
+    #errors.append(lines[34])
+    #errors.append(lines[37])
+    #lines.pop(34)
+    #lines.pop(37)
 
     # Loop through all lines except the last line as it's empty
     for line in lines[:-1]:
-
+        print(line)
         # For each line remove any trailing whitespace e.g. newline characters \n and split it by , creating a list
         row = line.rstrip().split(',')
+
+        # Want to keep the original data set but with the numbers converted to floats and as well as the class name in string
+        flower_data_name.append([float(x) for x in row[:-1]])
+        flower_data_name[-1]+=[row[-1]]
 
         # Seperate each list based on the species
         if(row[4]=="Iris-setosa"):
@@ -119,13 +134,19 @@ def main():
 
             # Add some sort of indicator for each species e.g. 1.0 for iris setosa etc..
             flower_data.append([float(x) for x in row[:-1] + [1.0]])
+
+
         elif(row[4]=="Iris-versicolor"):
 
             iris_versicolour.append([float(x) for x in row[:-1] + [2.0]])
             flower_data.append([float(x) for x in row[:-1] + [2.0]])
+
+
         else:
             iris_virginica.append([float(x) for x in row[:-1] + [3.0]])
             flower_data.append([float(x) for x in row[:-1] + [3.0]])
+
+
 
     # calculate size of population for each species
     setosa_len = len(iris_setosa)
@@ -282,7 +303,10 @@ def main():
         elif(virginica_petal_width_min > i[3]):
            virginica_petal_width_min=i[3]
 
+
+
     print("Setosa Data :")
+    print("Number of Samples :", setosa_len)
     print("Average sepal length :", setosa_sepal_length_avg/setosa_len)
     print("Average sepal width :",setosa_sepal_width_avg/setosa_len)
     print("Average petal length :",setosa_petal_length_avg/setosa_len)
@@ -306,6 +330,7 @@ def main():
     print()
 
     print("Versicolour Data :")
+    print("Number of Samples :", versicolour_len)
     print("Average sepal length :", versicolour_sepal_length_avg/versicolour_len)
     print("Average sepal width :",versicolour_sepal_width_avg/versicolour_len)
     print("Average petal length :",versicolour_petal_length_avg/versicolour_len)
@@ -329,6 +354,7 @@ def main():
     print()
 
     print("Virginica Data :")
+    print("Number of Samples :", virginica_len)
     print("Average sepal length :", virginica_sepal_length_avg/virginica_len)
     print("Average sepal width :",virginica_sepal_width_avg/virginica_len)
     print("Average petal length :",virginica_petal_length_avg/virginica_len)
@@ -366,7 +392,7 @@ def main():
     setosa_pattern = [setosa_petal_length_avg/setosa_len, setosa_petal_width_avg/setosa_len, standard_dev(iris_setosa,setosa_petal_length_avg/setosa_len,2),standard_dev(iris_setosa,setosa_petal_width_avg/setosa_len,3)]
 
     versicolour_pattern = [versicolour_petal_length_avg/versicolour_len, versicolour_petal_width_avg/versicolour_len, standard_dev(iris_versicolour,versicolour_petal_length_avg/versicolour_len,2),
-standard_dev(iris_versicolour,versicolour_petal_width_avg/versicolour_len,3)]
+    standard_dev(iris_versicolour,versicolour_petal_width_avg/versicolour_len,3)]
 
     virginica_pattern = [virginica_petal_length_avg/virginica_len, virginica_petal_width_avg/virginica_len, standard_dev(iris_virginica,virginica_petal_length_avg/virginica_len,2),
     standard_dev(iris_virginica,virginica_petal_width_avg/virginica_len,3)]
@@ -374,8 +400,29 @@ standard_dev(iris_versicolour,versicolour_petal_width_avg/versicolour_len,3)]
 
     patterns = [setosa_pattern,versicolour_pattern,virginica_pattern]
 
-    pattern_match(patterns,iris_setosa[0])
+    #pattern_match(patterns,iris_setosa[0])
 
-    #print(standard_dev([iris_setosa[0]],setosa_petal_length_avg/setosa_len,2))
+    # box and whisker plots
+    dataset = pandas.DataFrame(flower_data_name)
+    #print(dataset)
+    dataset.hist()
+    #plt.show()
+    plt.savefig('hist_plot.png')
+
+    scatter_matrix(dataset)
+    plt.savefig('scatter_plot.png')
+
+
+    # Split-out validation dataset
+    array = dataset.values
+    X = array[:,0:4]
+    Y = array[:,4]
+    validation_size = 0.20
+    seed = 7
+
+    #print(X)
+    #print(Y)
+    X_train, X_validation, Y_train, Y_validation = sklearn.model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
+
 if __name__ == '__main__':
     main()

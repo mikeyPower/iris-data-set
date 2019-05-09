@@ -15,6 +15,8 @@ In order to install all python modules run the following command.
 
 ![image](https://user-images.githubusercontent.com/17595044/57466493-af0cbb80-7278-11e9-9ffd-f55029c5244d.png)
 
+![image](https://user-images.githubusercontent.com/17595044/57466537-c9469980-7278-11e9-8ff3-5f39b25d0b44.png)
+
     
     
 ## References

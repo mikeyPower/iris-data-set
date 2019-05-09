@@ -1,5 +1,18 @@
 # iris-data-set
+Python 3.6.6
 
+## Prerequisite
+In order to install all python modules run the following command.
+
+    ./install.sh
+
+## Run
+    python iris_analysis.py 
+    
+## Output
+    
+    
+## References
 https://archive.ics.uci.edu/ml/datasets/Iris
 
 https://en.wikipedia.org/wiki/Iris_flower_data_set

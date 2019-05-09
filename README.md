@@ -1,10 +1,16 @@
 # iris-data-set
-Python 3.6.6
+
+The dataset contains 150 observations of iris flowers. There are four columns of attributes of the flowers in centimeters. The fifth column is the species of the flower observed. All observed flowers belong to one of three species.
+-- Iris Setosa 
+-- Iris Versicolour 
+-- Iris Virginica
 
 ## Prerequisite
-In order to install all python modules run the following command.
+Python 3.6.6
 
-    ./install.sh
+In order to install all python modules run the following command. 
+
+     ./install.sh
 
 ## Run
     python iris_analysis.py 

@@ -1,6 +1,6 @@
 # iris-data-set
 
-The dataset contains 150 observations of iris flowers. There are four columns of attributes of the flowers in centimeters. The fifth column is the species of the flower observed. All observed flowers belong to one of three species:
+The dataset contains 150 observations of iris flowers. There are four columns that consist of attributes of the flowers in centimeters. The fifth column is the species of the flower observed. All observed flowers belong to one of three species:
 
     -- Iris Setosa 
     -- Iris Versicolour 

@@ -13,3 +13,7 @@ https://www.datascience.com/blog/introduction-to-correlation-learn-data-science-
 https://www.khanacademy.org/math/probability/data-distributions-a1/summarizing-spread-distributions/a/calculating-standard-deviation-step-by-step
 
 https://www.investopedia.com/terms/s/standarddeviation.asp
+
+https://www.scikit-yb.org/en/latest/api/classifier/classification_report.html
+
+https://en.wikipedia.org/wiki/Confusion_matrix

@@ -10,6 +10,11 @@ In order to install all python modules run the following command.
     python iris_analysis.py 
     
 ## Output
+
+![image](https://user-images.githubusercontent.com/17595044/57466438-8c7aa280-7278-11e9-94d2-dd3b97678285.png)
+
+![image](https://user-images.githubusercontent.com/17595044/57466493-af0cbb80-7278-11e9-9ffd-f55029c5244d.png)
+
     
     
 ## References
